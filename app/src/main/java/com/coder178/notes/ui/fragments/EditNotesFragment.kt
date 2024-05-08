@@ -179,9 +179,13 @@ class EditNotesFragment : Fragment() {
     }
 
     private fun formatDate(dateString: String): String {
-        val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        val outputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        val date = inputFormat.parse(dateString)
-        return outputFormat.format(date)
+    if (dateString == "Date") {
+        // Handle the case when dateString is "Date"
+        return "" // or any default value you want to return
+    }
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+    val outputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+    val date = inputFormat.parse(dateString)
+    return outputFormat.format(date)
     }
 }
